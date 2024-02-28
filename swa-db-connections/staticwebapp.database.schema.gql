@@ -3,8 +3,8 @@ Add your CosmosDB NoSQL database schema in this file
 
 For example:
 """
-type ToDo @model {
+type todos @model {
   id: String!
   text: String!
-  complete: Boolean!
+  completed: Boolean!
 }

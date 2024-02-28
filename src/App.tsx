@@ -59,19 +59,23 @@ function App() {
       console.log("starting query");
       // i need a graphql query to pull the list of todos
 
-      const query = `
-        todo {
-          items {
-           id
+      const query = {
+        query: `query {
+          todos{
+            items{
+              id
+              text
+              completed
+            }
           }
-        }
-      `;
+        }`,
+      };
 
       const endpoint = "/data-api/graphql";
       const response = await fetch(endpoint, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ query: query }),
+        body: JSON.stringify(query),
       });
       console.log(response);
       const result = await response.json();

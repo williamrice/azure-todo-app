@@ -22,20 +22,20 @@
       "authentication": {
         "provider": "StaticWebApps"
       },
-      "mode": "production"
+      "mode": "development"
     }
   },
   "entities": {
-"ToDo": {
-      "source": "todos",
-      
-      "permissions": [
-        {
-          "actions": ["*"],
-          "role": "anonymous"
+    "todos": {
+          "source": "todos",
+          "graphql": true,
+          "permissions": [
+            {
+              "actions": ["*"],
+              "role": "anonymous"
+            }
+          ]
         }
-      ]
-    }
 
   }
 }

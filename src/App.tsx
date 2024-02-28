@@ -7,7 +7,6 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -30,7 +29,7 @@ function App() {
 
   const addTodo = (text: string) => {
     const todo = {
-      id: crypto.randomUUID(),
+      id: crypto.randomUUID() as string,
       text,
       complete: false,
     };
@@ -59,7 +58,7 @@ function App() {
     <>
       <div className="layout flex-col items-center mt-6 ">
         <div className="container  max-w-fit">
-          <Form className="" {...form}>
+          <Form {...form}>
             <form
               onSubmit={form.handleSubmit(onSubmit)}
               className="space-y-8 flex gap-1"

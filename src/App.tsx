@@ -74,7 +74,7 @@ function App() {
         body: JSON.stringify({ query: query }),
       });
       const result = await response.json();
-      console.table(result.data.people.items);
+      console.table(result.data.todo.items);
     }
 
     list();

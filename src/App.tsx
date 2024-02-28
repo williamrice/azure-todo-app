@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "./components/ui/button";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
@@ -53,6 +53,32 @@ function App() {
 
     form.reset();
   }
+
+  useEffect(() => {
+    async function list() {
+      const query = `
+      {
+        todo {
+          items {
+            id
+            text
+            completed
+          }
+        }
+      }`;
+
+      const endpoint = "/data-api/graphql";
+      const response = await fetch(endpoint, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ query: query }),
+      });
+      const result = await response.json();
+      console.table(result.data.people.items);
+    }
+
+    list();
+  }, []);
 
   return (
     <>

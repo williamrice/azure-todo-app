@@ -1,0 +1,10 @@
+"""
+Add your CosmosDB NoSQL database schema in this file
+
+For example:
+"""
+type ToDo @model {
+  id: string
+  text: string
+  complete: boolean
+}

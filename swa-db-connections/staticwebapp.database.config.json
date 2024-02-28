@@ -9,11 +9,6 @@
     }
   },
   "runtime": {
-    "rest": {
-      "enabled": false,
-      "path": "/api",
-      "request-body-strict": true
-    },
     "graphql": {
       "enabled": true,
       "path": "/graphql",

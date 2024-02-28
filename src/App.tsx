@@ -57,16 +57,15 @@ function App() {
   useEffect(() => {
     async function list() {
       console.log("starting query");
+      // i need a graphql query to pull the list of todos
+
       const query = `
-      {
         todo {
           items {
-            id
-            text
-            completed
+           id
           }
         }
-      }`;
+      `;
 
       const endpoint = "/data-api/graphql";
       const response = await fetch(endpoint, {
@@ -77,7 +76,7 @@ function App() {
       console.log(response);
       const result = await response.json();
       console.log(result);
-      console.table(result.data.todo.items);
+      //console.table(result.data.todo.items);
     }
 
     list();

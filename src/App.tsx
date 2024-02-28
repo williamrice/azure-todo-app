@@ -83,17 +83,31 @@ function App() {
     form.reset();
   }
 
+  async function getUserInfo() {
+    const response = await fetch("/.auth/me");
+    const payload = await response.json();
+    const { clientPrincipal } = payload;
+    return clientPrincipal;
+  }
+
+  (async () => {
+    console.log(await getUserInfo());
+  })();
+
   useEffect(() => {
     getAllTodos().then((data) => {
       console.log(data);
       setTodos(data);
     });
+    getUserInfo().then((data) => console.log(data));
   }, []);
 
   return (
     <>
       <div className="layout flex-col items-center mt-6 ">
         <div className="container  max-w-fit">
+          <a href="/.auth/login/aad">Login</a>
+          <a href="/.auth/logout">Logout</a>
           <Form {...form}>
             <form
               onSubmit={form.handleSubmit(onSubmit)}

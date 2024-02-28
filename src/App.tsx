@@ -56,6 +56,7 @@ function App() {
 
   useEffect(() => {
     async function list() {
+      console.log("starting query");
       const query = `
       {
         todo {
@@ -73,7 +74,9 @@ function App() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ query: query }),
       });
+      console.log(response);
       const result = await response.json();
+      console.log(result);
       console.table(result.data.todo.items);
     }
 
